@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body align="center">
+    <div>
+        <h1>Delete Your Task  Here</h1>
+        ID:<input type="number" id="input_id"/><br/><br/>
+        <button id="submit">Submit</button>
+    </div>
+    <script>
+        document.querySelector('#submit').addEventListener('click',async (e)=>{
+            e.preventDefault();
+            let search=document.querySelector('#input_id').value.trim();
+            let response=await fetch('http://localhost:3001/delete?id='+search);
+            let data=await response.json();
+            console.log(data,"search");
+        })
+    </script>
+</body>
+</html>
